@@ -498,6 +498,9 @@ We have created a number of resources for the simulator that allow for quick tes
 The following chapter will describe how to use the simulator. 
 
 ![Activity](gifs/activity.gif)
+
+---
+
 ![Device](gifs/device.gif)
 
 	
