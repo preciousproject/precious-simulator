@@ -75,7 +75,7 @@ function logGpsCoordinates(error, response) {
     	console.log(response.latitude, response.longitude)
     }
     
-Precious.getGPS(logGpsCoordinates);
+Precious.plugins.getGPS(logGpsCoordinates);
 ```
 
 The `callback` function is called with two arguments, `error` and `response`. In case the request succeeded, `error` will be set to `null` and you can check for that as seen in the example above. `response` is an object containing keys and values according to the respective call that has been made.
@@ -91,7 +91,7 @@ function log(error, response) {
 	}
 }
 
-Precious.getGPS(log, { myKey: 'importantPropertyForThisCall' });
+Precious.plugins.getGPS(log, { myKey: 'importantPropertyForThisCall' });
 ```
 
 ---
@@ -126,7 +126,7 @@ function log(error, response) {
 	}
 }
 
-requestID = Precious.getContinuousGPS(logGpsCoordinates);
+requestID = Precious.plugins.getContinuousGPS(log);
 ```
 
 In this example, we first start a continuous request to retreive regular updates on GPS coordinates via `Precious.getContinuousGPS`, which returns a unique request ID. We store this ID in the `requestID` variable and use it in the `removeRequest` function to remove the request again via the provided `Precious.removeRequest`.
@@ -140,7 +140,7 @@ In this example, we first start a continuous request to retreive regular updates
 Returns the user's userID - which is unique among devices.
 
 ```javascript
-Precious.getUserID(callback, userInfo)
+Precious.plugins.getUserID(callback, userInfo)
 ```	
 
 **Response Object**
@@ -165,7 +165,7 @@ var callback = function(e,r) {
 Returns the user's birthday.
 
 ```javascript
-Precious.getUserBirthday(callback, userInfo)
+Precious.plugins.getUserBirthday(callback, userInfo)
 ```	
 
 **Response Object**
@@ -190,7 +190,7 @@ var callback = function(e,r) {
 Returns the user's weight.
 
 ```javascript
-Precious.getUserWeight(callback, userInfo)
+Precious.plugins.getUserWeight(callback, userInfo)
 ```	
 
 **Response Object**
@@ -217,8 +217,8 @@ var callback = function(e,r) {
 Returns a boolean value whether the device has current connectivity to the internet or not.
 
 ```javascript
-Precious.getConnectivity(callback, userInfo)
-Precious.getContinuousConnectivity(callback, userInfo)
+Precious.plugins.getConnectivity(callback, userInfo)
+Precious.plugins.getContinuousConnectivity(callback, userInfo)
 ```	
 **Response Object**
 
@@ -242,8 +242,8 @@ var callback = function(e,r) {
 Returns a boolean value whether the device is currently using a WiFi connection.
 
 ```javascript
-Precious.getWifi(callback, userInfo)
-Precious.getContinuousWifi(callback, userInfo)
+Precious.plugins.getWifi(callback, userInfo)
+Precious.plugins.getContinuousWifi(callback, userInfo)
 ```	
 
 **Response Object**
@@ -265,11 +265,11 @@ var callback = function(e,r) {
 #### Precious.getBattery
 ---
 
-Returns an integer value [0;100] indicating the current battery level in %.
+Returns an integer value [0;1] indicating the current battery level in %.
 
 ```javascript
-Precious.getBattery(callback, userInfo)
-Precious.getContinuousBattery(callback, userInfo)
+Precious.plugins.getBattery(callback, userInfo)
+Precious.plugins.getContinuousBattery(callback, userInfo)
 ```	
 **Response Object**
 
@@ -293,8 +293,8 @@ var callback = function(e,r) {
 Returns a boolean value whether the user has activated vibration as a possible interaction type. 
 
 ```javascript
-Precious.getVibration(callback, userInfo)
-Precious.getContinuousVibration(callback, userInfo)
+Precious.plugins.getVibration(callback, userInfo)
+Precious.plugins.getContinuousVibration(callback, userInfo)
 ```	
 
 **Response Object**
@@ -324,7 +324,7 @@ This API section deals with the possible ways of storing values using the PRECIO
 Retreives a value for the specified `key` parameter.
 
 ```javascript
-Precious.getStorageEntry(callback, key, userInfo)
+Precious.plugins.getStorageEntry(callback, key, userInfo)
 ```	
 
 **Response Object**
@@ -349,7 +349,7 @@ var callback = function(e,r) {
 Sets the value `value` for the key `key` as specified in the arguments of the function call.
 
 ```javascript
-Precious.setStorageEntry(callback, key, value, userInfo)
+Precious.plugins.setStorageEntry(callback, key, value, userInfo)
 ```	
 
 The callback contains only an **empty response**.
@@ -361,7 +361,7 @@ The callback contains only an **empty response**.
 Removes the storage entry that was previously stored using the `key` value. 
 
 ```javascript
-Precious.removeStorageEntry(callback, key, userInfo)
+Precious.plugins.removeStorageEntry(callback, key, userInfo)
 ```	
 
 The callback contains only an **empty response**.
@@ -371,8 +371,8 @@ The callback contains only an **empty response**.
 **Example** 
 
 ```javascript
-Precious.setStorageEntry(null, "dataKey", { myData: "This is my data"})
-Precious.getStorageEntry(function(error, response) {
+Precious.plugins.setStorageEntry(null, "dataKey", { myData: "This is my data"})
+Precious.plugins.getStorageEntry(function(error, response) {
 	console.log(response.value.myData) // = "This is my data"
 }, "dataKey");
 Precious.removeStorageEntry(null, "dataKey");
@@ -386,8 +386,8 @@ Precious.removeStorageEntry(null, "dataKey");
 Retreives the user's current GPS coordinates. If location tracking is deactivated, an error is returned.
 
 ```javascript
-Precious.getGPS(callback, params, userInfo)
-Precious.getContinuousGPS(callback, userInfo)
+Precious.plugins.getGPS(callback, params, userInfo)
+Precious.plugins.getContinuousGPS(callback, userInfo)
 ```	
 	
 **Response Object**
@@ -421,8 +421,8 @@ var callback = function(e,r) {
 Retreives the user's current heartrate. In the production environment, this reading is determined using for instance a wearable, the phone's camera, or other means. 
 
 ```javascript
-Precious.getHeartrate(callback, userInfo)
-Precious.getContinousHeartrate(callback, userInfo)
+Precious.plugins.getHeartrate(callback, userInfo)
+Precious.plugins.getContinousHeartrate(callback, userInfo)
 ```	
 
 **Response Object**
@@ -449,8 +449,8 @@ var callback = function(e,r) {
 Retreives the user's current activity, i.e. movement pattern.
 
 ```javascript
-Precious.getActivity(callback, userInfo)
-Precious.getContinuousActivity(callback, userInfo)
+Precious.plugins.getActivity(callback, userInfo)
+Precious.plugins.getContinuousActivity(callback, userInfo)
 ```	
 
 **Response Object**
@@ -478,7 +478,103 @@ var callback = function(e,r) {
 ```	
 	
 Please be **aware** that multiple flags can be set simultaneously, i.e. for a certain period of time between `startDate` and `endDate` both `stationary` and `walking` could be set to `true` for instance. 
+   
+## App Events
+---
+### running
+---
+
+This is the default App state. In this state the app is shown to the user and it is unlikely that it is suddenly terminated.
+
+### close
+---
+
+The close event can be hooked by setting the `Precious.onclose` function property, allowing to do some cleanup before the app is closed. After this event the app isn't visible anymore.
+
+```javascript
+
+function closeFnc() {
+    console.log('app is now closing');
+    return true; // close the app now
+}
+
+Precious.onclose = closeFnc;
+```
+
+If more time consuming operations must be done before closing like network requests the closing method can return false to further postpone app termination. In this case `Precious.close()` must be called upon finishing the calculations to regularly close the app.
+
+```javascript
+function endLongTimeWork() {
+    Precious.close();
+}
+
+function closeFnc() {
+    //start asyncronous long time work
+    setTimeout(endLongTimeWork, 1000);
     
+    return false; //postpone app termination
+}
+```
+
+Please be **aware** that in this closing state the app may be terminated at any point without further notifications by **Precious** if resources should get low. Simulating this situation can be accomplished by clicking the stop button in the Generals tab.
+
+### minimize
+---
+
+This event occurs if **Precious** environment minimized the app. This means it can continue to collect data or do other stuff, but isn't shown to the user anymore. To receive this event `Precious.onminimize` function property must be set.
+
+```javascript
+
+function minimize() {
+    console.log('not visible anymore');
+}
+
+Precious.onminimize = minimize;
+```
+
+### maximize
+
+This event is the opposite of the `minimize` event. It is fired when the app becomes visible again after it was minimized. To receive the event set `Precious.onmaximize`.
+
+```javascript
+
+function maximize() {
+    console.log('visible again');
+}
+
+Precious.onmaximize = maximize;
+```
+
+### appDidEnterBackground
+
+This event occurs if the whole Precious environment was put to the background by iOS e.g. by hitting the home button. This means that the app gets an undefined amount of time until all code execution is suspended. This event is not necessary preceded by a minimize event.
+
+```javascript
+
+function appDidEnterBackground() {
+    console.log('app is in background now');
+    //do some more work
+    Precious.endBackgroundTask(); //must be called at the end of calculation 
+}
+
+Precious.onappDidEnterBackground = appDidEnterBackground;
+```
+
+The call of `Precious.endBackgroundTask()` tells the Precious environment that the app is ready to be suspended, but please be **aware** that it may be suspended before this method is called leading to an interruption in the code execution.
+
+### appDidBecomeActive
+
+This event occurs if the Precious environment is put in the foreground by iOS again. It means that the app can resume its regular tasks again. Due to technical reasons this event is triggered immediately after `endBackgroundTask` is called (either by the simulator or the app), but this is not true for the iOS environment and should therefore not be relied on.
+
+```javascript
+
+function appDidBecomActive() {
+    console.log('resume normal activity');
+}
+
+Precious.onappDidBecomActive = onAppDidBecomeActive;
+```
+
 ## Usage & Examples
 
 We have created three example applications demonstrating the functionality of the above mentioned APIs. They can be found the `examples` folder.
@@ -495,7 +591,7 @@ The following chapter will describe how to use the simulator.
 
 ![General](gifs/general.gif)
 
-This is the general tab and the entrypoint into the simulator. From here you can control your app's lifecycle. Select the main html file of your application and click run. You can stop the application again by clicking stop. You can also change the resulting window's resolution, or send specific status messages to the app - like when background mode was entered, etc., so your app can react accordingly.
+This is the general tab and the entrypoint into the simulator. From here you can control your app's lifecycle. Select the main html file of your application and click run. You can stop the application again by clicking stop. This will not trigger any notifications, but terminate the app immediately. You can also change the resulting window's resolution, or send specific status messages to the app - like when background mode was entered, etc., so your app can react accordingly.
 
 ---
 
@@ -520,7 +616,7 @@ Here you can specify certain device values, such as the current battery level or
 
 ![Location](gifs/location.gif)
 
-Here you can specify GPS Locations. You can load a GPX file (remember that we provide a few default ones) and start the tracking with the start button. If your GPX file doesn't contain timestamps, you can use the convert function by specifying speed and resolution. A speed value of 20km/h and time per waypoint of 1 seconds means that a continuozs request would receive at least one value per second, and the waypoints between the ones specified in the GPS value would be interpolated accordingly.
+Here you can specify GPS Locations. You can load a GPX file (remember that we provide a few default ones) and start the tracking with the start button. If your GPX file doesn't contain timestamps, you can use the convert function by specifying speed and resolution. A speed value of 20km/h and time per waypoint of 1 seconds means that a continuous request would receive at least one value per second, and the waypoints between the ones specified in the GPS value would be interpolated accordingly.
 
 ---
 
