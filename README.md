@@ -132,8 +132,7 @@ requestID = Precious.getContinuousGPS(logGpsCoordinates);
 In this example, we first start a continuous request to retreive regular updates on GPS coordinates via `Precious.getContinuousGPS`, which returns a unique request ID. We store this ID in the `requestID` variable and use it in the `removeRequest` function to remove the request again via the provided `Precious.removeRequest`.
 
 
-### User
----
+## User
 
 #### Precious.getUserID
 ---
@@ -210,8 +209,7 @@ var callback = function(e,r) {
 }
 ```	
 
-### Device
----
+## Device
 
 #### Precious.getConnectivity
 ---
@@ -315,8 +313,7 @@ var callback = function(e,r) {
 }
 ```	
 
-### Storage
----
+## Storage
 
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
 
@@ -379,8 +376,7 @@ Precious.getStorageEntry(function(error, response) {
 Precious.removeStorageEntry(null, "dataKey");
 ```	
 
-### Location
----
+## Location
 
 #### Precious.getGPS
 ---
@@ -415,8 +411,7 @@ var callback = function(e,r) {
 }
 ```	
 	
-### Heartrate
----
+## Heartrate
 
 #### Precious.getHeartrate
 ---
@@ -444,8 +439,7 @@ var callback = function(e,r) {
 }
 ```		
 
-### Activity
----
+## Activity
 
 #### Precious.getActivity
 ---
@@ -483,13 +477,11 @@ var callback = function(e,r) {
 	
 Please be **aware** that multiple flags can be set simultaneously, i.e. for a certain period of time between `startDate` and `endDate` both `stationary` and `walking` could be set to `true` for instance. 
     
-### Usage & Examples
----
+## Usage & Examples
 
 We have created three example applications demonstrating the functionality of the above mentioned APIs. They can be found the `examples` folder.
 
-### Resources
----
+## Resources
 
 We have created a number of resources for the simulator that allow for quick testing of gps coordinates etc. They can be found in the `resources` folder.
 
