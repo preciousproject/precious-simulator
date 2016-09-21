@@ -80,48 +80,51 @@ The `callback` function is called with two arguments, `error` and `response`. In
 
 <!-- example -->	
 
-    function log(error, response) {
-		if (error != null || typeof response.userInfo !== 'undefined') {
-			console.log(response.userInfo.myKey);
-		}
+```javascript
+function log(error, response) {
+	if (error != null || typeof response.userInfo !== 'undefined') {
+		console.log(response.userInfo.myKey);
 	}
+}
 
-	Precious.getGPS(log, { myKey: 'importantPropertyForThisCall' });
+Precious.getGPS(log, { myKey: 'importantPropertyForThisCall' });
+```
 
 ---
 
 Continous requests are also part of the API, and constantly execute the callback function whenever new data is available. In addition, continuous requests return a **unique request ID** which can be stored and used to remove the request again. The following example shows this functionality.
 
- 
- 	var requestID = null;
- 	var requestCounter = 0;
- 	
- 	function removeRequest() {
- 		Precious.removeRequest(requestId, requestRemoved);
- 	}
- 	
- 	function requestRemoved(error, response) {
- 		if (error != null) {
- 			console(response)
- 		}
- 	}
- 	
-	function log(error, response) {
-		if (error != null && requestID != null) {
-			removeRequest();
-		}
-    	if (error != null) {
-    		console.log("Request " + requestCounter + ": " + response.latitude + "," + 
-        			response.longitude)
-        	requestCounter+=1;	
-        	if (requestCounter > 10) {
-        		removeRequest();
-        	}
-    	}
-    	
-    }
-    
-    requestID = Precious.getContinuousGPS(logGpsCoordinates);
+```javascript
+var requestID = null;
+var requestCounter = 0;
+
+function removeRequest() {
+	Precious.removeRequest(requestId, requestRemoved);
+}
+
+function requestRemoved(error, response) {
+	if (error != null) {
+		console(response)
+	}
+}
+
+function log(error, response) {
+if (error != null && requestID != null) {
+	removeRequest();
+}
+if (error != null) {
+	console.log("Request " + requestCounter + ": " + response.latitude + "," + 
+			response.longitude)
+	requestCounter+=1;	
+	if (requestCounter > 10) {
+		removeRequest();
+	}
+}
+
+}
+
+requestID = Precious.getContinuousGPS(logGpsCoordinates);
+```
 
 In this example, we first start a continuous request to retreive regular updates on GPS coordinates via `Precious.getContinuousGPS`, which returns a unique request ID. We store this ID in the `requestID` variable and use it in the `removeRequest` function to remove the request again via the provided `Precious.removeRequest`.
 
