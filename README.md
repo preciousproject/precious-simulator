@@ -497,9 +497,19 @@ We have created a number of resources for the simulator that allow for quick tes
 
 The following chapter will describe how to use the simulator. 
 
+## General
+
+![General](gifs/general.gif)
+
+This is the general tab and the entrypoint into the simulator. From here you can control your app's lifecycle. Select the main html file of your application and click run. You can stop the application again by clicking stop. You can also change the resulting window's resolution, or send specific status messages to the app - like when background mode was entered, etc., so your app can react accordingly.
+
+---
+
 ## Activity
 
 ![Activity](gifs/activity.gif)
+
+This is the activity plugin. You can here control what type of activity should be passed on to the app should the respective request be issued. Everytime you change values for instance, a continuous request would get the changes accordingly.
 
 ---
 
@@ -507,23 +517,24 @@ The following chapter will describe how to use the simulator.
 
 ![Device](gifs/device.gif)
 
----
-
-## General
-
-![General](gifs/general.gif)
+Here you can specify certain device values, such as the current battery level or wifi and vibration availability.
 
 ---
+
 
 ## Location
 
 ![Location](gifs/location.gif)
+
+Here you can specify GPS Locations. You can load a GPX file (remember that we provide a few default ones) and start the tracking with the start button. If your GPX file doesn't contain timestamps, you can use the convert function by specifying speed and resolution. A speed value of 20km/h and time per waypoint of 1 seconds means that a continuozs request would receive at least one value per second, and the waypoints between the ones specified in the GPS value would be interpolated accordingly.
 
 ---
 
 ## Storage
 
 ![Storage](gifs/storage.gif)
+
+Here you can access and modify values that are stored using the PRECIOUS API. You can set, modify and delete keys and their respective values.
 	
 ---
 
@@ -531,11 +542,15 @@ The following chapter will describe how to use the simulator.
 
 ![User](gifs/user.gif)
 
+Here you can specify specific user data, such as a randomly generated user ID, birthday and weight in kg.
+
 ---
 
 ## Heartbeat
 
 ![User](gifs/heartbeat.gif)
+
+This plugin is used to simulate human heartbeats. You can either use a file specified by yourself (for syntax see the examples in the `resource` folder), or use random or specific values as in the selection options. Once you click Start & Update, the current BPM value will be set. 
 
     
     
