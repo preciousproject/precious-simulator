@@ -497,13 +497,45 @@ We have created a number of resources for the simulator that allow for quick tes
 
 The following chapter will describe how to use the simulator. 
 
+## Activity
+
 ![Activity](gifs/activity.gif)
 
 ---
 
+## Device
+
 ![Device](gifs/device.gif)
 
+---
+
+## General
+
+![General](gifs/general.gif)
+
+---
+
+## Location
+
+![Location](gifs/location.gif)
+
+---
+
+## Storage
+
+![Storage](gifs/storage.gif)
 	
+---
+
+## User
+
+![User](gifs/user.gif)
+
+---
+
+## Heartbeat
+
+![User](gifs/heartbeat.gif)
 
     
     
