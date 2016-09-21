@@ -22,19 +22,19 @@ The simulator can be easily built yourself. The only dependency required is [Nod
 
 <!-- git clone -->
 
-   git clone https://github.com/preciousproject/precious-simulator
+    git clone https://github.com/preciousproject/precious-simulator
    
 * Go to the `simulator` folder and install dependencies via
 
 <!-- npm install -->
 
-   npm install
+    npm install
   
 * Run via 
 
 <!-- npm start -->
 
-   npm start
+    npm start
 
 Alternatively you can build the tool to an executable yourself by running
 
