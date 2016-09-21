@@ -316,6 +316,7 @@ var callback = function(e,r) {
 ## Storage
 
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
+
 ---
 #### Precious.getStorageEntry
 ---
@@ -352,6 +353,7 @@ Precious.setStorageEntry(callback, key, value, userInfo)
 ```	
 
 The callback contains only an **empty response**.
+
 ---
 #### Precious.removeStorageEntry
 ---
