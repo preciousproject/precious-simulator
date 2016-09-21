@@ -40,7 +40,7 @@ Alternatively you can build the tool to an executable yourself by running
 
     grunt build
     
-This will build the simulator for all platforms, so adjust the gruntfile accordingly for your platform. 
+This will build the simulator for all platforms, so adjust the gruntfile accordingly for your platform (recommended only for people who know what they are doing). 
 
 ## API
 
@@ -62,16 +62,17 @@ Each of the API method has at least two arguments
 
 An example callback for the GPS plugin looks as follows
 
-    function logGpsCoordinates(error, response) {
-    	if (error != null) {
-    		console.log(error.errorCode, error.msg)
-    		return;
+```javascript
+function logGpsCoordinates(error, response) {
+	if (error != null) {
+		console.log(error.errorCode, error.msg)
+			return;
     	}
-    	console.log(response.latitude, 
-        			response.longitude)
+    	console.log(response.latitude, response.longitude)
     }
     
-    Precious.getGPS(logGpsCoordinates);
+Precious.getGPS(logGpsCoordinates);
+```
 
 The `callback` function is called with two arguments, `error` and `response`. In case the request succeeded, `error` will be set to `null` and you can check for that as seen in the example above. `response` is an object containing keys and values according to the respective call that has been made.
 
