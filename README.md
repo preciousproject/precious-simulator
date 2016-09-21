@@ -161,41 +161,50 @@ Precious.getUserWeight(callback, userInfo)
 
 Returns a boolean value whether the device has current connectivity to the internet or not.
 
-	Precious.getConnectivity(callback, userInfo)
-	
-	Precious.getContinuousConnectivity(callback, userInfo)
-	
+```javascript
+Precious.getConnectivity(callback, userInfo)
+Precious.getContinuousConnectivity(callback, userInfo)
+```	
 **Response Object**
 
-	{
-		connectivity: Boolean 
-	}
+```javascript
+{
+	connectivity: Boolean 
+}
+```	
 	
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.connectivity)
-	}
+```javascript
+var callback = function(e,r) {
+	console.log(r.connectivity)
+}
+```	
 
 #### Precious.getWifi	
 
 Returns a boolean value whether the device is currently using a WiFi connection.
 
-	Precious.getWifi(callback, userInfo)
-	
-	Precious.getContinuousWifi(callback, userInfo)
-	
+```javascript
+Precious.getWifi(callback, userInfo)
+Precious.getContinuousWifi(callback, userInfo)
+```	
+
 **Response Object**
 
-	{
-		wifi: Boolean 
-	}
-	
+```javascript
+{
+	wifi: Boolean 
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.wifi)
-	}
+```javascript
+var callback = function(e,r) {
+	console.log(r.wifi)
+}
+```	
 
 #### Precious.getBattery
 
