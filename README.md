@@ -133,19 +133,28 @@ In this example, we first start a continuous request to retreive regular updates
 
 #### Precious.getUserID
 
-	Precious.getUserID(callback, userInfo)
-	
-Returns the user's 
+Returns the user's userID - which is unique among devices.
+
+```javascript
+Precious.getUserID(callback, userInfo)
+```	
 
 #### Precious.getUserBirthday
 
-	Precious.getUserBirthday(callback, userInfo)
+Returns the user's birthday.
+
+```javascript
+Precious.getUserBirthday(callback, userInfo)
+```	
 	
 #### Precious.getUserWeight
 
-	Precious.getUserWeight(callback, userInfo)
-	
-	
+Returns the user's weight.
+
+```javascript
+Precious.getUserWeight(callback, userInfo)
+```	
+
 ### Device
 
 #### Precious.getConnectivity
