@@ -133,7 +133,7 @@ In this example, we first start a continuous request to retreive regular updates
 
 
 ## User
-
+---
 #### Precious.getUserID
 ---
 
@@ -158,7 +158,7 @@ var callback = function(e,r) {
 	console.log(r.userID)
 }
 ```	
-
+---
 #### Precious.getUserBirthday
 ---
 
@@ -183,7 +183,7 @@ var callback = function(e,r) {
 	console.log(r.birthday)
 }
 ```	
-	
+---
 #### Precious.getUserWeight
 ---
 
@@ -210,7 +210,7 @@ var callback = function(e,r) {
 ```	
 
 ## Device
-
+---
 #### Precious.getConnectivity
 ---
 
@@ -235,7 +235,7 @@ var callback = function(e,r) {
 	console.log(r.connectivity)
 }
 ```	
-
+---
 #### Precious.getWifi	
 ---
 
@@ -261,7 +261,7 @@ var callback = function(e,r) {
 	console.log(r.wifi)
 }
 ```	
-
+---
 #### Precious.getBattery
 ---
 
@@ -286,7 +286,7 @@ var callback = function(e,r) {
 	console.log(r.battery)
 }
 ```	
-
+---
 #### Precious.getVibration
 ---
 
@@ -316,7 +316,7 @@ var callback = function(e,r) {
 ## Storage
 
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
-
+---
 #### Precious.getStorageEntry
 ---
 
@@ -341,7 +341,7 @@ var callback = function(e,r) {
 	console.log(r.value)
 }
 ```	
-
+---
 #### Precious.setStorageEntry
 ---
 
@@ -352,7 +352,7 @@ Precious.setStorageEntry(callback, key, value, userInfo)
 ```	
 
 The callback contains only an **empty response**.
-
+---
 #### Precious.removeStorageEntry
 ---
 
@@ -377,7 +377,7 @@ Precious.removeStorageEntry(null, "dataKey");
 ```	
 
 ## Location
-
+---
 #### Precious.getGPS
 ---
 
@@ -412,7 +412,7 @@ var callback = function(e,r) {
 ```	
 	
 ## Heartrate
-
+---
 #### Precious.getHeartrate
 ---
 
@@ -440,7 +440,7 @@ var callback = function(e,r) {
 ```		
 
 ## Activity
-
+---
 #### Precious.getActivity
 ---
 
