@@ -109,18 +109,17 @@ function requestRemoved(error, response) {
 }
 
 function log(error, response) {
-if (error != null && requestID != null) {
-	removeRequest();
-}
-if (error != null) {
-	console.log("Request " + requestCounter + ": " + response.latitude + "," + 
-			response.longitude)
-	requestCounter+=1;	
-	if (requestCounter > 10) {
+	if (error != null && requestID != null) {
 		removeRequest();
 	}
-}
-
+	if (error != null) {
+		console.log("Request " + requestCounter + ": " + response.latitude + "," + 
+			response.longitude)
+		requestCounter+=1;	
+		if (requestCounter > 10) {
+			removeRequest();
+		}
+	}
 }
 
 requestID = Precious.getContinuousGPS(logGpsCoordinates);
@@ -139,12 +138,44 @@ Returns the user's userID - which is unique among devices.
 Precious.getUserID(callback, userInfo)
 ```	
 
+**Response Object**
+
+```javascript
+{
+	userID: String 
+}
+```	
+	
+**Example callback**
+
+```javascript
+var callback = function(e,r) {
+	console.log(r.userID)
+}
+```	
+
 #### Precious.getUserBirthday
 
 Returns the user's birthday.
 
 ```javascript
 Precious.getUserBirthday(callback, userInfo)
+```	
+
+**Response Object**
+
+```javascript
+{
+	birthday: Long // timestamp in ms 
+}
+```	
+	
+**Example callback**
+
+```javascript
+var callback = function(e,r) {
+	console.log(r.birthday)
+}
 ```	
 	
 #### Precious.getUserWeight
@@ -153,6 +184,22 @@ Returns the user's weight.
 
 ```javascript
 Precious.getUserWeight(callback, userInfo)
+```	
+
+**Response Object**
+
+```javascript
+{
+	weight: Int // value in kg
+}
+```	
+	
+**Example callback**
+
+```javascript
+var callback = function(e,r) {
+	console.log(r.weight)
+}
 ```	
 
 ### Device
