@@ -10,7 +10,7 @@ Apps running within PRECIOUS can be created using **HTML, CSS and Javascript**. 
 
 Here is a screenshot of the main windows.
 
-![Screenshot](https://raw.githubusercontent.com/preciousproject/precious-simulator/master/images/screen1.png)
+![Screenshot](images/screen1.png)
 
 ## Requirements
 
@@ -497,8 +497,8 @@ We have created a number of resources for the simulator that allow for quick tes
 
 The following chapter will describe how to use the simulator. 
 
-
-	
+![Activity](images/activity.gif)
+![Device](images/device.gif)
 
 	
 
