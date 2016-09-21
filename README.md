@@ -129,8 +129,10 @@ In this example, we first start a continuous request to retreive regular updates
 
 
 ### User
+---
 
 #### Precious.getUserID
+---
 
 Returns the user's userID - which is unique among devices.
 
@@ -155,6 +157,7 @@ var callback = function(e,r) {
 ```	
 
 #### Precious.getUserBirthday
+---
 
 Returns the user's birthday.
 
@@ -179,6 +182,7 @@ var callback = function(e,r) {
 ```	
 	
 #### Precious.getUserWeight
+---
 
 Returns the user's weight.
 
@@ -203,8 +207,10 @@ var callback = function(e,r) {
 ```	
 
 ### Device
+---
 
 #### Precious.getConnectivity
+---
 
 Returns a boolean value whether the device has current connectivity to the internet or not.
 
@@ -229,6 +235,7 @@ var callback = function(e,r) {
 ```	
 
 #### Precious.getWifi	
+---
 
 Returns a boolean value whether the device is currently using a WiFi connection.
 
@@ -254,6 +261,7 @@ var callback = function(e,r) {
 ```	
 
 #### Precious.getBattery
+---
 
 Returns an integer value [0;100] indicating the current battery level in %.
 
@@ -278,6 +286,7 @@ var callback = function(e,r) {
 ```	
 
 #### Precious.getVibration
+---
 
 Returns a boolean value whether the user has activated vibration as a possible interaction type. 
 
@@ -303,10 +312,12 @@ var callback = function(e,r) {
 ```	
 
 ### Storage
+---
 
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
 
 #### Precious.getStorageEntry
+---
 
 Retreives a value for the specified `key` parameter.
 
@@ -331,6 +342,7 @@ var callback = function(e,r) {
 ```	
 
 #### Precious.setStorageEntry
+---
 
 Sets the value `value` for the key `key` as specified in the arguments of the function call.
 
@@ -341,6 +353,7 @@ Precious.setStorageEntry(callback, key, value, userInfo)
 The callback contains only an **empty response**.
 
 #### Precious.removeStorageEntry
+---
 
 Removes the storage entry that was previously stored using the `key` value. 
 
@@ -363,8 +376,10 @@ Precious.removeStorageEntry(null, "dataKey");
 ```	
 
 ### Location
+---
 
 #### Precious.getGPS
+---
 
 Retreives the user's current GPS coordinates. If location tracking is deactivated, an error is returned.
 
@@ -397,8 +412,10 @@ var callback = function(e,r) {
 ```	
 	
 ### Heartrate
+---
 
 #### Precious.getHeartrate
+---
 
 Retreives the user's current heartrate. In the production environment, this reading is determined using for instance a wearable, the phone's camera, or other means. 
 
@@ -424,8 +441,10 @@ var callback = function(e,r) {
 ```		
 
 ### Activity
+---
 
 #### Precious.getActivity
+---
 
 Retreives the user's current activity, i.e. movement pattern.
 
@@ -461,14 +480,18 @@ var callback = function(e,r) {
 Please be **aware** that multiple flags can be set simultaneously, i.e. for a certain period of time between `startDate` and `endDate` both `stationary` and `walking` could be set to `true` for instance. 
     
 ### Usage & Examples
+---
 
 We have created three example applications demonstrating the functionality of the above mentioned APIs. They can be found the `examples` folder.
 
 ### Resources
+---
 
 We have created a number of resources for the simulator that allow for quick testing of gps coordinates etc. They can be found in the `resources` folder.
 
-## Simulator Usage
+## Simulator
+
+The following chapter will describe how to use the simulator. 
 
 
 	
