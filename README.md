@@ -19,17 +19,22 @@ We generally provide pre-built executables for  Windows, MacOSX and Linux. These
 The simulator can be easily built yourself. The only dependency required is [Node.js](https://nodejs.org/en/). As me make extensive use of ES5/ES6, we recommend at least version `6.5.0` to build yourself. If you have other local versions of node, we recommend to use [NVM](https://github.com/creationix/nvm) in order to manage between different version.
 
 * Simply clone the github repository via 
+
 <!-- git clone -->
 
-    `git clone https://github.com/preciousproject/precious-simulator`
+   git clone https://github.com/preciousproject/precious-simulator
    
 * Go to the `simulator` folder and install dependencies via
+
 <!-- npm install -->
-    npm install
+
+   npm install
   
 * Run via 
+
 <!-- npm start -->
-    npm start
+
+   npm start
 
 Alternatively you can build the tool to an executable yourself by running
 
