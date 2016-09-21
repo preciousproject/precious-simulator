@@ -480,14 +480,10 @@ var callback = function(e,r) {
 Please be **aware** that multiple flags can be set simultaneously, i.e. for a certain period of time between `startDate` and `endDate` both `stationary` and `walking` could be set to `true` for instance. 
    
 ## App Events
----
-### running
----
 
-This is the default App state. In this state the app is shown to the user and it is unlikely that it is suddenly terminated.
+In the following section are all events explained, which are emitted by **Precious**. They can be triggered by the `send status message` menu in the generals tab.
 
 ### close
----
 
 The close event can be hooked by setting the `Precious.onclose` function property, allowing to do some cleanup before the app is closed. After this event the app isn't visible anymore.
 
@@ -519,7 +515,6 @@ function closeFnc() {
 Please be **aware** that in this closing state the app may be terminated at any point without further notifications by **Precious** if resources should get low. Simulating this situation can be accomplished by clicking the stop button in the Generals tab.
 
 ### minimize
----
 
 This event occurs if **Precious** environment minimized the app. This means it can continue to collect data or do other stuff, but isn't shown to the user anymore. To receive this event `Precious.onminimize` function property must be set.
 
