@@ -210,41 +210,51 @@ var callback = function(e,r) {
 
 Returns an integer value [0;100] indicating the current battery level in %.
 
-	Precious.getBattery(callback, userInfo)
-
-	Precious.getContinuousBattery(callback, userInfo)
-	
+```javascript
+Precious.getBattery(callback, userInfo)
+Precious.getContinuousBattery(callback, userInfo)
+```	
 **Response Object**
 
-	{
-		battery: Integer 
-	}
-	
+```javascript
+{
+	battery: Integer 
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.battery)
-	}
+```javascript
+var callback = function(e,r) {
+	console.log(r.battery)
+}
+```	
 
 #### Precious.getVibration
 
 Returns a boolean value whether the user has activated vibration as a possible interaction type. 
 
-	Precious.getVibration(callback, userInfo)
-	Precious.getContinuousVibration(callback, userInfo)
-	
+```javascript
+Precious.getVibration(callback, userInfo)
+Precious.getContinuousVibration(callback, userInfo)
+```	
+
 **Response Object**
 
-	{
-		vibration: Boolean 
-	}
+```javascript
+{
+	vibration: Boolean 
+}
+```	
 	
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.vibration)
-	}
-	
+```javascript
+var callback = function(e,r) {
+	console.log(r.vibration)
+}
+```	
+
 ### Storage
 
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
@@ -253,82 +263,91 @@ This API section deals with the possible ways of storing values using the PRECIO
 
 Retreives a value for the specified `key` parameter.
 
-	Precious.getStorageEntry(callback, key, userInfo)
-	
+```javascript
+Precious.getStorageEntry(callback, key, userInfo)
+```	
+
 **Response Object**
 
-	{
-		value: Type or null (Type of the data that was stored using the key)
-	}
-	
+```javascript
+{
+	value: Type or null (Type of the data that was stored using the key)
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.value)
-	}
-	
+```javascript
+var callback = function(e,r) {
+	console.log(r.value)
+}
+```	
+
 #### Precious.setStorageEntry
 
 Sets the value `value` for the key `key` as specified in the arguments of the function call.
 
-	Precious.setStorageEntry(callback, key, value, userInfo)
-	
+```javascript
+Precious.setStorageEntry(callback, key, value, userInfo)
+```	
+
 The callback contains only an **empty response**.
 
 #### Precious.removeStorageEntry
 
 Removes the storage entry that was previously stored using the `key` value. 
 
-	Precious.removeStorageEntry(callback, key, userInfo)
-	
+```javascript
+Precious.removeStorageEntry(callback, key, userInfo)
+```	
+
 The callback contains only an **empty response**.
 
 ---
 
 **Example** 
 
-	Precious.setStorageEntry(null, "dataKey", { myData: "This is my data"})
-	Precious.getStorageEntry(function(error, response) {
-		console.log(response.value.myData) // = "This is my data"
-	}, "dataKey");
-	Precious.removeStorageEntry(null, "dataKey");
-	
+```javascript
+Precious.setStorageEntry(null, "dataKey", { myData: "This is my data"})
+Precious.getStorageEntry(function(error, response) {
+	console.log(response.value.myData) // = "This is my data"
+}, "dataKey");
+Precious.removeStorageEntry(null, "dataKey");
+```	
+
 ### Location
 
 #### Precious.getGPS
 
 Retreives the user's current GPS coordinates. If location tracking is deactivated, an error is returned.
 
-	Precious.getGPS(callback, params, userInfo)
-	Precious.getContinuousGPS(callback, userInfo)
-	
-	response.latitude = gpxData[gpxCounter].lat;
-    response.longitude = gpxData[gpxCounter].lon;
-    response.altitude = gpxData[gpxCounter].elevation;
-    response.speed = presentData.speed;
-    response.course = presentData.course;
-    response.verticalAccuracy = 10.0;
-    response.horizontalAccuracy = 10.0;
-    response.timestamp
+```javascript
+Precious.getGPS(callback, params, userInfo)
+Precious.getContinuousGPS(callback, userInfo)
+```	
 	
 **Response Object**
 
-	{
-		latitude: Float // latitude in degrees
-		longitude: Float // longitude in degrees
-		altitude: Float or null // altitude in meters
-		speed: Float or null // speed in km/h
-		course: Float or null // bearing in degrees
-		verticalAccuracy: Float // vertical accuracy in meters
-		horizontalAccuracy: Float // horizontal accuracy in meters
-		timestamp: Long // timestamp in milliseconds
-	}
-	
+```javascript
+{
+	latitude: Float // latitude in degrees
+	longitude: Float // longitude in degrees
+	altitude: Float or null // altitude in meters
+	speed: Float or null // speed in km/h
+	course: Float or null // bearing in degrees
+	verticalAccuracy: Float // vertical accuracy in meters
+	horizontalAccuracy: Float // horizontal accuracy in meters
+	timestamp: Long // timestamp in milliseconds
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.latitude, r.longitude)
-	}
+```javascript
+var callback = function(e,r) {
+	console.log(r.latitude, r.longitude)
+}
+```	
 	
 ### Heartrate
 
@@ -336,49 +355,61 @@ Retreives the user's current GPS coordinates. If location tracking is deactivate
 
 Retreives the user's current heartrate. In the production environment, this reading is determined using for instance a wearable, the phone's camera, or other means. 
 
-	Precious.getHeartrate(callback, userInfo)
-	Precious.getContinousHeartrate(callback, userInfo)
-	
+```javascript
+Precious.getHeartrate(callback, userInfo)
+Precious.getContinousHeartrate(callback, userInfo)
+```	
+
 **Response Object**
 
-	{
-		heartrate: Float // heartrate in Beats per minute
-	}
-	
+```javascript
+{
+	heartrate: Float // heartrate in Beats per minute
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.heartrate)
-	}
-	
+```javascript
+var callback = function(e,r) {
+	console.log(r.heartrate)
+}
+```		
+
 ### Activity
 
 #### Precious.getActivity
 
 Retreives the user's current activity, i.e. movement pattern.
 
-    Precious.getActivity(callback, userInfo)
-    Precious.getContinuousActivity(callback, userInfo)
-    
+```javascript
+Precious.getActivity(callback, userInfo)
+Precious.getContinuousActivity(callback, userInfo)
+```	
+
 **Response Object**
 
-	{
-		startDate: Long // startDate of the activity in ms timestamp
-		endDate: Long // endDate of the activity in ms timestamp
-		stationary: Bool // whether the user was stationary
-		walking: Bool // whether the user walked
-		running: Bool // whether the user was running
-		automotive: Bool // whether the user was using a car
-		cycling: Bool // whether the user was cycling
-		unknown: Bool // whether the detected activity is unknown
-		confidence: Integer // confidence of the reading ranging from low (0) to high (3)
-	}
-	
+```javascript
+{
+	startDate: Long // startDate of the activity in ms timestamp
+	endDate: Long // endDate of the activity in ms timestamp
+	stationary: Bool // whether the user was stationary
+	walking: Bool // whether the user walked
+	running: Bool // whether the user was running
+	automotive: Bool // whether the user was using a car
+	cycling: Bool // whether the user was cycling
+	unknown: Bool // whether the detected activity is unknown
+	confidence: Integer // confidence of the reading ranging from low (0) to high (3)
+}
+```	
+
 **Example callback**
 
-	var callback = function(e,r) {
-		console.log(r.stationary)
-	}
+```javascript
+var callback = function(e,r) {
+	console.log(r.stationary)
+}
+```	
 	
 Please be **aware** that multiple flags can be set simultaneously, i.e. for a certain period of time between `startDate` and `endDate` both `stationary` and `walking` could be set to `true` for instance. 
     
