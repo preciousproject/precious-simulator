@@ -1,0 +1,74 @@
+html {
+    overflow-y: hidden;
+}
+
+#background {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-image: url('../img/landscape.png');
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    border: 5px solid black;
+}
+
+#mario{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-image:url('../img/mario_in_balloon_square.png');
+    background-position-x: 0px;
+    background-size: 100% 100%;
+    height: 100px;
+    width: 100px;
+}
+
+#buttons {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+}
+
+#points{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#heartrate{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#info {
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+    display: none;
+}
+
+#end {
+    font-weight: bold;
+    font-size: 28px;
+    color: black;
+    display: none;
+}
+
+.mybtn {
+    font-size: 35px;
+}

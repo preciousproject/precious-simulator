@@ -1,0 +1,32 @@
+{
+	"heartbeat" : 
+	[
+		{"timestamp" : 1, "heartrate" : 89},
+		{"timestamp" : 2, "heartrate" : 92},
+		{"timestamp" : 3, "heartrate" : 89},
+		{"timestamp" : 4, "heartrate" : 85},
+		{"timestamp" : 5, "heartrate" : 87},
+		{"timestamp" : 6, "heartrate" : 83},
+		{"timestamp" : 7, "heartrate" : 79},
+		{"timestamp" : 8, "heartrate" : 76},
+		{"timestamp" : 9, "heartrate" : 81},
+		{"timestamp" : 10, "heartrate" : 84},
+		{"timestamp" : 11, "heartrate" : 79},
+		{"timestamp" : 12, "heartrate" : 89},
+		{"timestamp" : 13, "heartrate" : 92},
+		{"timestamp" : 14, "heartrate" : 89},
+		{"timestamp" : 15, "heartrate" : 85},
+		{"timestamp" : 16, "heartrate" : 90},
+		{"timestamp" : 17, "heartrate" : 93},
+		{"timestamp" : 18, "heartrate" : 96},
+		{"timestamp" : 19, "heartrate" : 98},
+		{"timestamp" : 20, "heartrate" : 103},
+		{"timestamp" : 21, "heartrate" : 108},
+		{"timestamp" : 22, "heartrate" : 109},
+		{"timestamp" : 23, "heartrate" : 110},
+		{"timestamp" : 22, "heartrate" : 117},
+		{"timestamp" : 22, "heartrate" : 101},
+		{"timestamp" : 22, "heartrate" : 95},
+		{"timestamp" : 22, "heartrate" : 91}
+	]
+}

@@ -1,0 +1,43 @@
+.meme-container {
+}
+
+.undiscovered {
+    background-color: black;
+    height: 100px; !important;
+}
+
+.page-body {
+    padding-top:70px;
+}
+
+.meme-row {
+    height: 200px;
+}
+
+.meme {
+    min-height: 100px;
+    width: 100%;
+    margin: auto;
+}
+
+img {
+    width:100%;
+}
+
+.name {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.type {
+    font-style: italic;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#gps-available {
+    padding-right: 15px;
+    float: right;
+}

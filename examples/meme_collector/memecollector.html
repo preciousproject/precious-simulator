@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Collector</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="memecollector.css">
+    <script type="application/javascript" src="jquery.min.js"></script>
+    <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="application/javascript" src="memecollector.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Meme Collector</a>
+            <p class="nav navbar-text" id="gps-available"><span class="label label-danger">No GPS Signal</span></p>
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <div class="navbar-btn">
+                <button class="btn btn-default" id="resetBtn">Reset</button>
+            </div>
+
+        </div>
+    </div>
+</nav>
+<div class="container-fluid page-body">
+    <div class="row meme-row">
+        <div data-needed="200" data-type="walking" data-description="Bad Luck Brian" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/bad-luck-brian.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="200" data-type="running" data-description="Derp" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/derp.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="200" data-type="automotive" data-description="Trollface" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/trollface.png"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="200" data-type="cycling" data-description="Bitch Please" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/bitchplease.png"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="300" data-type="walking" data-description="Grumpy Cat" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/grumpy-cat.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="300" data-type="running" data-description="LOL" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/lol.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="500" data-type="automotive" data-description="Suspicious Fry" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/fry.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="500" data-type="cycling" data-description="Angry Walter" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/angry-walter.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="500" data-type="walking" data-description="Megusta" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/megusta.png"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="500" data-type="running" data-description="Insanity Wolf" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/insanity-wolf.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="1000" data-type="automotive" data-description="Scumbag Steve" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/scumbag-steve.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="1000" data-type="cycling" data-description="Forever Alone" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/foreveralone.png"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="2000" data-type="walking" data-description="Success Kid" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/success-kid.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="2000" data-type="running" data-description="Good Guy Greg" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/good-guy-greg.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="5000" data-type="automotive" data-description="First World Problems" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/first-world-problems.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="5000" data-type="cycling" data-description="Awkward Seal" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/awkward-seal.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="8000" data-type="automotive" data-description="Like a Sir" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/likeasir.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="7500" data-type="cycling" data-description="Like a Boss" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/likeaboss.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row meme-row">
+        <div data-needed="9000" data-type="running" data-description="Dickbutt" class="col-xs-4 col-xs-offset-1 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/dickbutt.png"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+        <div data-needed="10000" data-type="walking" data-description="Not Bad Obama" class="col-xs-4 col-xs-offset-2 meme-container"><div class="meme undiscovered"><img class="invisible" src="images/not-bad-obama.jpg"></div><span class="name">Unknown</span><br><span class="current">0</span><span class="description"></span></div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+</body>
+</html>

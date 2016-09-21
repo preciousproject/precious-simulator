@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meme Collector on Map</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./css/index.css" rel="stylesheet"/>
+    <script src="./js/vendor/jquery.min.js"></script>
+    <script src="./js/vendor/bootstrap.min.js"></script>
+    <script src="./js/positions.js"></script>
+    <script src="./js/index.js"></script>
+</head>
+<body>
+<div id="map"></div>
+<div id="memeoverlay">
+    <div class="left">
+        <img src="img/memes/dickbutt.png"/>
+    </div>
+    <div class="right">
+        <div class="top">...</div>
+        <div class="bottom">...</div>
+    </div>
+</div>
+<div id="overlay">
+  <b>No GPS available</b>
+</div>
+
+<script type="text/javascript">
+
+window.map;
+
+function initMap() {
+
+    var customMapType = new google.maps.StyledMapType([
+      {
+        stylers: [
+          { hue: '#2f2f32' },
+          {visibility: 'simplified'},
+          { saturation: -80 }
+        ]
+      },
+      {
+        elementType: 'labels',
+        stylers: [{visibility: 'off'}]
+      },
+      {
+        featureType: 'water',
+        stylers: [{color: '#2f2f32'}, { saturation: -80 }]
+      }
+    ], {
+      name: 'Custom Style'
+  });
+
+    var customMapTypeId = 'custom_style';
+    
+    window.map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 17,
+        disableDefaultUI: true
+    });
+
+    var icon = {
+        url: "img/marker.png", // url
+        scaledSize: new google.maps.Size(25, 25),
+        anchor: new google.maps.Point(12.5, 12.5)
+    };
+
+    var circle = {
+        path: google.maps.SymbolPath.CIRCLE,
+        fillOpacity: 0.35,
+        fillColor: '#2f2f32',
+        strokeOpacity: 0.8,
+        strokeColor: '#2f2f32',
+        strokeWeight: 1.0,
+        scale: 10.0
+    };
+
+    var playerCircle = new google.maps.Marker({
+        icon: circle,
+        position: {lat: -33.890, lng: 151.274},
+        zIndex: 0,
+    });
+
+    //playerCircle.setMap(window.map);
+
+    var marker = new google.maps.Marker({
+        position: {lat: -33.890, lng: 151.274},
+        map: window.map,
+        icon: icon,
+        zIndex: google.maps.Marker.MAX_ZINDEX,
+    });
+
+    map.mapTypes.set(customMapTypeId, customMapType);
+    map.setMapTypeId(customMapTypeId);
+
+    var poly = new google.maps.Polyline({
+        map: window.map,
+        path: []
+    });
+
+    window.memeMarkers = initMemeMarkers(window.positions, window.map);
+    window.counter = 0;
+
+    startLocationRequests(function(error, response) {
+        
+        if(error) {
+            setGpsAvailable(false);
+            return;
+        }
+
+        setGpsAvailable(true);
+
+        var point = new google.maps.LatLng(response.latitude, response.longitude);
+        playerCircle.setPosition(point);
+        marker.setPosition(point);
+
+        window.map.setCenter(point);
+        var path = poly.getPath();
+        path.push(point);
+
+        if(path.length > 10) {
+            path.removeAt(0);
+        }
+
+        poly.setPath(path);
+
+        var collisions = getCollidingMarkersAndRemoveCollisions(window.memeMarkers, point, 25);
+        if (collisions.length == 0) return;
+
+        collisions.forEach(function(collision) {
+            window.counter++;
+            collisionDetected(window.counter, collision);            
+        });
+
+    });
+}
+
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvSjcKnWbCV-KGWApKXLFflFj85004wUk&callback=initMap">
+</script>
+</body>
+</html>

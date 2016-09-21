@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balloon Ride</title>
+    <link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./lib/balloonride.css" rel="stylesheet"/>
+    <style>
+        .label-as-badge {
+            border-radius: 1em;
+        }
+    </style>
+    <script src="./lib/js/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./lib/balloonride.js"></script>
+</head>
+<body>
+    <div class="container-fluid" style="padding: 15px;">
+        <div id="background">
+            <div id="mario">
+            </div>
+
+            <div id="points">0 Coins
+            </div>
+            <div id="heartrate">&#x2764; ?
+            </div>
+
+            <div id="buttons">
+                <span id="info">Keine Heartrate gefunden!</span>
+                <span id="end"></span>
+                <br />
+                <button class="btn btn-default mybtn" onclick="startgame();">Start</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
