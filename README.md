@@ -18,9 +18,18 @@ We generally provide pre-built executables for  Windows, MacOSX and Linux. These
 
 The simulator can be easily built yourself. The only dependency required is [Node.js](https://nodejs.org/en/). As me make extensive use of ES5/ES6, we recommend at least version `6.5.0` to build yourself. If you have other local versions of node, we recommend to use [NVM](https://github.com/creationix/nvm) in order to manage between different version.
 
-* Simply clone the github repository via `git clone https://....`
-* Install dependencies via `npm install`
-* Run via `npm start`
+* Simply clone the github repository via 
+<!-- git clone -->
+
+    `git clone https://github.com/preciousproject/precious-simulator`
+   
+* Go to the `simulator` folder and install dependencies via
+<!-- npm install -->
+    npm install
+  
+* Run via 
+<!-- npm start -->
+    npm start
 
 Alternatively you can build the tool to an executable yourself by running
 
@@ -62,6 +71,8 @@ An example callback for the GPS plugin looks as follows
 The `callback` function is called with two arguments, `error` and `response`. In case the request succeeded, `error` will be set to `null` and you can check for that as seen in the example above. `response` is an object containing keys and values according to the respective call that has been made.
 
 * `userInfo` - this **optional** argument that you can provide and which is being passed around for your convenience. The following shows an example on how to access your own `userInfo` object from within your callback
+
+<!-- example -->	
 
     function log(error, response) {
 		if (error != null || typeof response.userInfo !== 'undefined') {
