@@ -8,6 +8,10 @@ The PRECIOUS Simulator is a development environment for mobile apps running in a
 
 Apps running within PRECIOUS can be created using **HTML, CSS and Javascript**. We provide an easy-to-use API to access native sensor information and other useful information about the user. The PRECIOUS Simulator emulates this environment and lets developers test their applications before release. The API is provided via an **automatically injected** javascript file that is loaded at runtime, so there is **no need** to include any dependencies yourself. The Simulator is written using [Electron](http://electron.atom.io/).
 
+Here is a screenshot of the main windows.
+
+![Screenshot](https://raw.githubusercontent.com/preciousproject/precious-simulator/master/images/screen1.png)
+
 ## Requirements
 
 ### Executables
