@@ -552,5 +552,19 @@ Here you can specify specific user data, such as a randomly generated user ID, b
 
 This plugin is used to simulate human heartbeats. You can either use a file specified by yourself (for syntax see the examples in the `resource` folder), or use random or specific values as in the selection options. Once you click Start & Update, the current BPM value will be set. 
 
+# Issues & Plugins
+
+Should you find bugs etc. in our code, we kindly ask you to open a new issue directly on Github, and we will try to fix them as soon as we can.
+
+You are also free to write additional plugins for the simulator in case you need more functionality. Go to the 
+
+    app/pages/
+    
+ folder to see how the plugins we've written work. 
+ 
+ For questions, comments, etc. you can always contact us under [hackathon@cs.univie.ac.at](mailto:hackathon@cs.univie.ac.at). 
+ 
+ 
+
     
     
