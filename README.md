@@ -6,7 +6,7 @@ The PRECIOUS Simulator is a development environment for mobile apps running in a
 
 ## Concept
 
-Apps running within PRECIOUS can be created using **HTML, CSS and Javascript**. We provide an easy-to-use API to access native sensor information and other useful information about the user. The PRECIOUS Simulator emulates this environment and lets developers test their applications before release. The API is provided via a **automatically injected** javascript file that is loaded at runtime, so there is **no need** to include any dependencies yourself. The Simulator is written using [Electron](http://electron.atom.io/).
+Apps running within PRECIOUS can be created using **HTML, CSS and Javascript**. We provide an easy-to-use API to access native sensor information and other useful information about the user. The PRECIOUS Simulator emulates this environment and lets developers test their applications before release. The API is provided via an **automatically injected** javascript file that is loaded at runtime, so there is **no need** to include any dependencies yourself. The Simulator is written using [Electron](http://electron.atom.io/).
 
 ## Requirements
 
@@ -16,7 +16,7 @@ We generally provide pre-built executables for  Windows, MacOSX and Linux. These
 
 ### Build yourself
 
-The simulator can be easily built yourself. The only dependency required is [Node.js](https://nodejs.org/en/). As me make extensive use of ES5/ES6, we recommend at least version `6.5.0` to build yourself. If you have other local versions of node, we recommend to use [NVM](https://github.com/creationix/nvm) in order to manage between different version.
+The simulator can be easily built yourself. The only dependency required is [Node.js](https://nodejs.org/en/). As me make extensive use of ES5/ES6, we recommend at least version `5.5.0` to build yourself. If you have other local versions of node, we recommend to use [NVM](https://github.com/creationix/nvm) in order to manage between different version.
 
 * Simply clone the github repository via 
 
@@ -489,7 +489,7 @@ We have created three example applications demonstrating the functionality of th
 
 We have created a number of resources for the simulator that allow for quick testing of gps coordinates etc. They can be found in the `resources` folder.
 
-## Simulator
+# Simulator
 
 The following chapter will describe how to use the simulator. 
 
