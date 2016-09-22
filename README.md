@@ -16,7 +16,11 @@ Here is a screenshot of the main windows.
 
 ### Executables
 
-We generally provide pre-built executables for  Windows, MacOSX and Linux. These can be found in the `build` folder. Please select according to your OS and architecture and simply start the respective executable.
+We generally provide pre-built executables for  Windows, MacOSX and Linux. These can be found 
+
+[Here http://hackathon.cs.univie.ac.at/downloads/](http://hackathon.cs.univie.ac.at/downloads/)
+
+Please select according to your OS and architecture and simply start the respective executable.
 
 ### Build yourself
 
