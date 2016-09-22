@@ -8,8 +8,8 @@
     "start": "grunt compile && electron ."
   },
   "devDependencies": {
+    "electron": "^1.4.1",
     "electron-packager": "^7.0.1",
-    "electron-prebuilt": "^0.36.0",
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "0.8.2",
     "grunt-contrib-less": "1.2.0",
@@ -20,6 +20,7 @@
   "dependencies": {
     "bootstrap": "3.3.6",
     "bootstrap-select": "^1.10.0",
+    "electron-prebuilt": "^1.4.1",
     "gpx-parse": "^0.10.4",
     "jquery": "1.9.1 - 2",
     "jsoneditor": "^5.1.5",
