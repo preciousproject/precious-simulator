@@ -44,7 +44,7 @@ Alternatively you can build the tool to an executable yourself by running
 
     grunt build
     
-This will build the simulator for all platforms, so adjust the gruntfile accordingly for your platform (recommended only for people who know what they are doing). 
+This will build the simulator for all platforms, so adjust the gruntfile accordingly for your platform (recommended only for people who know what they are doing). We have recently found a bug in the packaging process leading to some dependency problems, we've added a `build.sh` shell script to show how to manually build with `electron-packager`.
 
 **Notes**
 * To compile for Windows on Non-Windows hosts, wine is needed. [See here](https://github.com/maxogden/electron-packager#building-windows-apps-from-non-windows-platforms)
