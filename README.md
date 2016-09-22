@@ -151,7 +151,7 @@ Precious.plugins.getUserID(callback, userInfo)
 
 ```javascript
 {
-	userID: String 
+	id: String 
 }
 ```	
 	
@@ -159,7 +159,7 @@ Precious.plugins.getUserID(callback, userInfo)
 
 ```javascript
 var callback = function(e,r) {
-	console.log(r.userID)
+	console.log(r.id)
 }
 ```	
 ---
