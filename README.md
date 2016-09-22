@@ -46,6 +46,10 @@ Alternatively you can build the tool to an executable yourself by running
     
 This will build the simulator for all platforms, so adjust the gruntfile accordingly for your platform (recommended only for people who know what they are doing). 
 
+**Notes**
+* To compile for Windows on Non-Windows hosts, wine is needed. [See here](https://github.com/maxogden/electron-packager#building-windows-apps-from-non-windows-platforms)
+* Compiling for OSX on Windows isn't always working. [See here](https://github.com/maxogden/electron-packager/issues/96)
+
 ## API
 
 In the following we will provide an overview of the API methods that are available for building your own app. 
@@ -134,7 +138,7 @@ In this example, we first start a continuous request to retreive regular updates
 
 ## User
 ---
-#### Precious.getUserID
+#### Precious.plugins.getUserID
 ---
 
 Returns the user's userID - which is unique among devices.
@@ -159,7 +163,7 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.getUserBirthday
+#### Precious.plugins.getUserBirthday
 ---
 
 Returns the user's birthday.
@@ -184,7 +188,7 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.getUserWeight
+#### Precious.plugins.getUserWeight
 ---
 
 Returns the user's weight.
@@ -211,7 +215,7 @@ var callback = function(e,r) {
 
 ## Device
 ---
-#### Precious.getConnectivity
+#### Precious.plugins.getConnectivity
 ---
 
 Returns a boolean value whether the device has current connectivity to the internet or not.
@@ -236,7 +240,7 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.getWifi	
+#### Precious.plugins.getWifi	
 ---
 
 Returns a boolean value whether the device is currently using a WiFi connection.
@@ -262,10 +266,10 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.getBattery
+#### Precious.plugins.getBattery
 ---
 
-Returns an integer value [0;1] indicating the current battery level in %.
+Returns an float value [0;1] indicating the current battery level in %.
 
 ```javascript
 Precious.plugins.getBattery(callback, userInfo)
@@ -275,7 +279,7 @@ Precious.plugins.getContinuousBattery(callback, userInfo)
 
 ```javascript
 {
-	battery: Integer 
+	battery: Float 
 }
 ```	
 
@@ -287,7 +291,7 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.getVibration
+#### Precious.plugins.getVibration
 ---
 
 Returns a boolean value whether the user has activated vibration as a possible interaction type. 
@@ -318,7 +322,7 @@ var callback = function(e,r) {
 This API section deals with the possible ways of storing values using the PRECIOUS API. In a production environment, the values stored using this API are synchronized with the PRECIOUS backend, thus all values stored can be retreived from other devices. Storage is achieved using **key-value pairs**. 
 
 ---
-#### Precious.getStorageEntry
+#### Precious.plugins.getStorageEntry
 ---
 
 Retreives a value for the specified `key` parameter.
@@ -343,7 +347,7 @@ var callback = function(e,r) {
 }
 ```	
 ---
-#### Precious.setStorageEntry
+#### Precious.plugins.setStorageEntry
 ---
 
 Sets the value `value` for the key `key` as specified in the arguments of the function call.
@@ -355,7 +359,7 @@ Precious.plugins.setStorageEntry(callback, key, value, userInfo)
 The callback contains only an **empty response**.
 
 ---
-#### Precious.removeStorageEntry
+#### Precious.plugins.removeStorageEntry
 ---
 
 Removes the storage entry that was previously stored using the `key` value. 
@@ -375,12 +379,12 @@ Precious.plugins.setStorageEntry(null, "dataKey", { myData: "This is my data"})
 Precious.plugins.getStorageEntry(function(error, response) {
 	console.log(response.value.myData) // = "This is my data"
 }, "dataKey");
-Precious.removeStorageEntry(null, "dataKey");
+Precious.plugins.removeStorageEntry(null, "dataKey");
 ```	
 
 ## Location
 ---
-#### Precious.getGPS
+#### Precious.plugins.getGPS
 ---
 
 Retreives the user's current GPS coordinates. If location tracking is deactivated, an error is returned.
@@ -415,7 +419,7 @@ var callback = function(e,r) {
 	
 ## Heartrate
 ---
-#### Precious.getHeartrate
+#### Precious.plugins.getHeartrate
 ---
 
 Retreives the user's current heartrate. In the production environment, this reading is determined using for instance a wearable, the phone's camera, or other means. 
@@ -443,7 +447,7 @@ var callback = function(e,r) {
 
 ## Activity
 ---
-#### Precious.getActivity
+#### Precious.plugins.getActivity
 ---
 
 Retreives the user's current activity, i.e. movement pattern.
@@ -481,11 +485,11 @@ Please be **aware** that multiple flags can be set simultaneously, i.e. for a ce
    
 ## App Events
 
-In the following section are all events explained, which are emitted by **Precious**. They can be triggered by the `send status message` menu in the generals tab.
+In the following section all events are explained, which are emitted by **Precious**. They can be triggered by the `send status message` menu in the generals tab and mirror functionality usually available in a native environment.
 
 ### close
 
-The close event can be hooked by setting the `Precious.onclose` function property, allowing to do some cleanup before the app is closed. After this event the app isn't visible anymore.
+The close event can be retreived setting the `Precious.onclose` function property, allowing to do some cleanup before the app is closed. After this event the app isn't visible anymore.
 
 ```javascript
 
@@ -512,7 +516,7 @@ function closeFnc() {
 }
 ```
 
-Please be **aware** that in this closing state the app may be terminated at any point without further notifications by **Precious** if resources should get low. Simulating this situation can be accomplished by clicking the stop button in the Generals tab.
+Please be **aware** that in this closing state the app may be terminated at any point without further notifications by **Precious** in case resources should get low. Simulating this situation can be accomplished by clicking the stop button in the Generals tab.
 
 ### minimize
 
@@ -542,7 +546,7 @@ Precious.onmaximize = maximize;
 
 ### appDidEnterBackground
 
-This event occurs if the whole Precious environment was put to the background by iOS e.g. by hitting the home button. This means that the app gets an undefined amount of time until all code execution is suspended. This event is not necessary preceded by a minimize event.
+This event occurs if the whole Precious environment was put to the background by the OS e.g. by hitting the home button. This means that the app gets an undefined amount of time until all code execution is suspended. This event is not necessary preceded by a minimize event.
 
 ```javascript
 
@@ -559,7 +563,7 @@ The call of `Precious.endBackgroundTask()` tells the Precious environment that t
 
 ### appDidBecomeActive
 
-This event occurs if the Precious environment is put in the foreground by iOS again. It means that the app can resume its regular tasks again. Due to technical reasons this event is triggered immediately after `endBackgroundTask` is called (either by the simulator or the app), but this is not true for the iOS environment and should therefore not be relied on.
+This event occurs if the Precious environment is put in the foreground by the OS again. It means that the app can resume its regular tasks again. Due to technical reasons this event is triggered immediately after `endBackgroundTask` is called (either by the simulator or the app), but this is not true for the iOS environment and should therefore not be relied on.
 
 ```javascript
 
