@@ -1,0 +1,7 @@
+{
+  "name": "Example",
+  "url": "example.html",
+  "js": ["example.js"],
+  "css": ["example.css"],
+  "ignore": "true"
+}

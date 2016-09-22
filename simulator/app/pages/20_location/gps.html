@@ -1,0 +1,89 @@
+<div class="row">
+    <div class="col-xs-5">
+
+
+        <form id="gps-form">
+            <div class="form-group">
+
+                <label for="gpx-appPath">
+                    GPX-File:
+                </label>
+
+                <div class="input-group input-group-sm">
+                    <input id="gpx-appPath" type="text" class="form-control" placeholder="Load..."/>
+                    <span class="input-group-btn">
+                        <button type="button" id="browseFileGps" class="btn btn-default">...</button>
+                    </span>
+                </div>
+
+
+                <div class="btn-group btn-group-sm">
+                    <button type="button" id="gps-loadgpx" class="btn btn-default btn-sm">
+                        Load File
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="text" id="gpx-infoText">
+                    <span>
+
+                    </span>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="form-group" id="conversion" >
+                <div class="form-group">
+                  <label for="usr">Speed (km/h)</label>
+                  <input type="text" class="form-control" id="gps-conversion-kmh" value="20">
+                </div>
+                <div class="form-group">
+                  <label for="usr">Time per Waypoint (Seconds)</label>
+                  <input type="text" class="form-control" id="gps-conversion-time" value="1">
+                </div>
+                <div class="text" id="gpx-conversion-infoText">
+                    <span>
+
+                    </span>
+                </div>
+                <br/>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" id="gps-conversion-btn" class="btn btn-default btn-sm">
+                        Convert
+                    </button>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="form-group">
+                <button type="button" id="gps-startstop" class="btn btn-default btn-sm">
+                    Start
+                </button>
+
+            </div>
+
+            <div class="form-group">
+                <strong>Timer:</strong> <span id="gps-timer">-</span>
+                <br />
+                <strong>Waypoint:</strong> <span id="gps-waypoint">-</span>
+                <br />
+                <strong>Altitude:</strong> <span id="gps-actualaltitude">-</span>
+                <br />
+                <strong>Current Position:</strong> <span id="gps-actualposition">-</span>
+                <br />
+                <strong>Speed:</strong> <span id="gps-actualspeed">-</span>
+                <br />
+                <strong>Course:</strong> <span id="gps-actualcourse">-</span>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+
+    </div>
+</div>

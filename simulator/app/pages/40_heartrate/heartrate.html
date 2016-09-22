@@ -1,0 +1,93 @@
+<div class="row">
+    <div class="col-xs-5">
+
+        <form id="heartrate-form">
+            <div class="form-group">
+                <div class="input-color">
+                    <br/>
+                    <label for="colourBox" id="currentBpm"> Current BPM : None</label>
+                    <div id="colourBox" style="background-color: #FF0000;width: 20px;height: 20px"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="heartrate-filePath">
+                    Heartrate-File:
+                </label>
+
+                <div class="input-group input-group-sm">
+                    <input id="heartrate-filePath" type="text" class="form-control" placeholder="Load..."/>
+                    <span class="input-group-btn">
+                        <button type="button" id="heartrate-browse" class="btn btn-default">...</button>
+                    </span>
+                </div>
+
+                <div class="btn-group btn-group-sm">
+                    <button type="button" id="heartrate-load" class="btn btn-default btn-sm">
+                        Load File
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="text" id="infoText">
+                    <span>
+
+                    </span>
+                </div>
+            </div>
+
+            <hr/>
+
+            <div class="form-group">
+                <div class="radio">
+                    <label>
+                        <input id="radio1" type="radio" name="input" value="useFile" checked="true"> use File
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio2" type="radio" name="input" value="lowHeartbeat"> low heartbeat
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio3" type="radio" name="input" value="normalHeartbeat"> normal heartbeat
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio4" type="radio" name="input" value="highHeartbeat"> high heartbeat
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio5" type="radio" name="input" value="randomHeartbeat"> random heartbeat
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio6" type="radio" name="input" value="noHeartbeat"> do not return heartbeat
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input id="radio7" type="radio" name="input" value="chosenHeartbeat"> manually choose heartbeat
+                        <input id="slider" type="range" min="0" max="250" value="110" oninput="sliderValue.value = slider.value">
+                        <input class="text-info" type="text" id="sliderValue" value="110" readonly>
+                    </label>
+                </div>
+                <div class="btn-group btn-group-sm">
+                    <button type="button" id="heartrate-prepare" class="btn btn-default btn-sm">
+                        Start&Update
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+
+    </div>
+</div>

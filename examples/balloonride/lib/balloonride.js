@@ -51,13 +51,7 @@ function getHandler() {
 }
 
 function getHeartrate() {
-    Precious.makeRequest(
-        Precious._validRequestTypes.SingleGet,
-        "JS",
-        "heartrate",
-        {type: "default"}, //needs to be handled correctly by precious
-        getHandler()
-    );
+    Precious.plugins.getHeartrate(getHandler());
 }
 
 function checkHeartrate(){

@@ -1,0 +1,6 @@
+{
+  "name": "Activity",
+  "url": "activity.html",
+  "js": ["activity.js"],
+  "css": ["activity.css"]
+}

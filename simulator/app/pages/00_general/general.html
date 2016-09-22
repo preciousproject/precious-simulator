@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-xs-5">
+        <div class="form-group">
+        <div class="input-group input-group-sm">
+            <input id="general-appPath" type="text" class="form-control" placeholder="Load...">
+      <span class="input-group-btn">
+          <button id="browseFile" class="btn btn-default">...</button>
+      </span>
+        </div>
+        <div class="btn-group btn-group-sm">
+            <button id="general-startSim" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-play"></span>&nbsp;Run
+            </button>
+            <!--<button class="btn btn-default btn-sm" id="general-reloadSim"><span
+                    class="glyphicon glyphicon-refresh"></span>&nbsp;Reload
+            </button>-->
+            <button id="general-stopSim" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-stop"></span>&nbsp;Stop
+            </button>
+        </div>
+        </div>
+        <div class="progress" id="general-app-load">
+            <div class="black-overlay progress-bar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div> <!-- helper for color changing status -->
+            <div class="progress-bar foreground-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                <span class="sr-only">0% Complete</span>
+            </div>
+            <span class="status">stopped</span>
+        </div>
+        <div class="btn-group btn-group-justified form-group">
+            <button id="general-status-dropdown" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                Send Status Message... <span><span class="caret"></span></span>
+            </button>
+            <ul id="general-app-status" class="dropdown-menu">
+                <li><a href="#" data-status="close">close</a></li>
+                <li><a href="#" data-status="minimize">minimize</a></li>
+                <li><a href="#" data-status="maximize">maximize</a></li>
+                <li id="general-app-did-enter-bg"><a href="#" data-status="appDidEnterBackground">app did enter background</a></li>
+                <li id="general-end-bg-time" class="disabled"><a href="#" data-status="endBackgroundTask">end background time</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-1"></div>
+    <div class="col-xs-6">
+        <div class="tree-node tree-root" id="general-startup-menu">
+            <div>
+                <span class="glyphicon glyphicon-triangle-right expander"></span> Start Arguments
+                <div class="tree-node" style="display:none;">
+                    <div id="general-start-arguments"></div>
+                </div>
+            </div>
+
+            <div>
+                <span class="glyphicon glyphicon-triangle-right expander"></span> Device
+                <div class="tree-node" style="display:none;">
+                    <div id="general-devices"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

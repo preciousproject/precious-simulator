@@ -1,0 +1,56 @@
+#General {
+  padding-top: 15px;
+}
+#General #general-startSim > span {
+  color: green;
+}
+#General #general-stopSim > span {
+  color: darkred;
+}
+#General #general-reloadSim > span {
+  color: #f0ca00;
+}
+#General .btn-group-justified > button {
+  width: 100%;
+  text-align: left;
+}
+#General .btn-group-justified > button > span {
+  display: inline-block;
+  float: right;
+  height: 100%;
+  vertical-align: middle;
+}
+#General .btn-group-justified > ul {
+  width: 100%;
+}
+#General #general-app-load {
+  position: relative;
+}
+#General #general-app-load > div {
+  position: absolute;
+  height: 100%;
+}
+#General #general-app-load > .black-overlay {
+  background-color: black;
+  z-index: 1;
+  background-image: none;
+  /*disable bootstrap theme */
+  background-repeat: no-repeat;
+}
+#General #general-app-load > .foreground-bar {
+  z-index: 3;
+  mix-blend-mode: screen;
+}
+#General #general-app-load > span.status {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  mix-blend-mode: difference;
+  color: white;
+  z-index: 2;
+}
+#General #general-start-arguments .jsoneditor-menu {
+  /* bootstrap fix */
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}

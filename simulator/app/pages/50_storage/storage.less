@@ -1,0 +1,40 @@
+#Storage {
+  padding-top: 15px;
+
+  table#storage-table {
+    thead,tbody {
+      tr {
+        td,th {
+          position: relative;
+          padding: 1px 8px;
+
+          div.storage-content {
+            margin: -1px -8px;
+            padding: 1px 8px;
+          }
+
+          div.entry-menu {
+            position: absolute;
+            top:0;
+            bottom:0;
+            margin: auto 0;
+            height: 18px;
+            right: 8px;
+            display: none;
+          }
+        }
+        td.spaceholder {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      tr:hover {
+        td, th {
+          div.entry-menu {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

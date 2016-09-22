@@ -1,0 +1,6 @@
+{
+  "name": "Device",
+  "url": "device.html",
+  "js": ["device.js"],
+  "css": ["device.css"]
+}

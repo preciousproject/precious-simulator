@@ -9,17 +9,7 @@ $(function() {
         containers.find('span.description').show();
         containers.find('img').addClass('invisible');
         containers.each(function() {
-            Precious.makeRequest(
-                Precious._validRequestTypes.SingleGet,
-                "JS",
-                "storage",
-                {
-                    type: "set",
-                    key: $(this).data('description'),
-                    value: 0
-                },
-                function () { }
-            )
+            Precious.plugins.setStorageEntry(null, $(this).data('description'), 0);
         });
 
     });
@@ -27,39 +17,25 @@ $(function() {
     $('.meme-container').each(function() {
         var container = $(this);
         var description = container.data('description');
-        container.find('.description').html(' of ' + container.data('needed') + 'm<br><span class="type">' +  container.data('type') + '</span>')
-        Precious.makeRequest(
-            Precious._validRequestTypes.SingleGet,
-            "JS",
-            "storage",
-            {
-                type: "get",
-                key: description
-            },
-            function (error, response) {
-                var value = response.value || 0;
-                var currentElement = container.find('.current');
-                currentElement.data('distance', value);
-                if(value >= container.data('needed')) {
-                    container.find('.meme').removeClass('undiscovered');
-                    container.find('img').removeClass('invisible');
-                    container.find('.description').hide();
-                    container.find('.name').text(description);
-                    currentElement.hide();
-                } else {
-                    currentElement.text(Math.round(value));
-                }
+        container.find('.description').html(' of ' + container.data('needed') + 'm<br><span class="type">' +  container.data('type') + '</span>');
+        var handler = function (error, response) {
+            var value = response.value || 0;
+            var currentElement = container.find('.current');
+            currentElement.data('distance', value);
+            if(value >= container.data('needed')) {
+                container.find('.meme').removeClass('undiscovered');
+                container.find('img').removeClass('invisible');
+                container.find('.description').hide();
+                container.find('.name').text(description);
+                currentElement.hide();
+            } else {
+                currentElement.text(Math.round(value));
             }
-        )
-    });
-    Precious.makeRequest(
-        Precious._validRequestTypes.ContinousGet,
-        "JS",
-        "location",
-        {type: "default"}, //needs to be handled correctly by precious
-        handleGpsResponse
-    )
+        };
+        Precious.plugins.getStorageEntry(handler,description);
 
+    });
+    Precious.plugins.getContinuousGPS(handleGpsResponse);
 });
 
 function handleGpsResponse(gpserror, gpsresponse) {
@@ -75,63 +51,47 @@ function handleGpsResponse(gpserror, gpsresponse) {
     if(lastGps === null)
         return;
 
-    Precious.makeRequest(
-        Precious._validRequestTypes.SingleGet,
-        "JS",
-        "activity",
-        {type: "default"}, //needs to be handled correctly by precious
-        function(acterror, actresponse) {
-            if(acterror)
-                return;
+    Precious.plugins.getActivity(function(acterror, actresponse) {
+        if(acterror)
+            return;
 
-            var containers = $('.meme-container');
-            var count = 0;
-            var counted = {};
-            var distance = calcDist(lastGps, gpsresponse);
-            containers.each(function () {
-                var type = $(this).data('type');
-                if(actresponse[type] === true && !counted[type]) {
-                    count++;
-                    counted[type] = true;
+        var containers = $('.meme-container');
+        var count = 0;
+        var counted = {};
+        var distance = calcDist(lastGps, gpsresponse);
+        containers.each(function () {
+            var type = $(this).data('type');
+            if(actresponse[type] === true && !counted[type]) {
+                count++;
+                counted[type] = true;
+            }
+        });
+        containers.each(function() {
+            if(actresponse[$(this).data('type')] === true) {
+                var container = $(this);
+                var currentElement = container.find('.current');
+                var current = Number.parseFloat(currentElement.data('distance')) || 0;
+                var needed = container.data('needed');
+                var description = container.data('description');
+                if(current >= needed)
+                    return;
+
+                current = current + distance / count;
+                currentElement.data('distance', current);
+                if(current >= needed) {
+                    container.find('.meme').removeClass('undiscovered');
+                    container.find('img').removeClass('invisible');
+                    container.find('.description').hide();
+                    container.find('.name').text(description);
+                    currentElement.hide();
+                } else {
+                    currentElement.text(Math.round(current));
                 }
-            });
-            containers.each(function() {
-                if(actresponse[$(this).data('type')] === true) {
-                    var container = $(this);
-                    var currentElement = container.find('.current');
-                    var current = Number.parseFloat(currentElement.data('distance')) || 0;
-                    var needed = container.data('needed');
-                    var description = container.data('description');
-                    if(current >= needed)
-                        return;
 
-                    current = current + distance / count;
-                    currentElement.data('distance', current);
-                    if(current >= needed) {
-                        container.find('.meme').removeClass('undiscovered');
-                        container.find('img').removeClass('invisible');
-                        container.find('.description').hide();
-                        container.find('.name').text(description);
-                        currentElement.hide();
-                    } else {
-                        currentElement.text(Math.round(current));
-                    }
-
-                    Precious.makeRequest(
-                        Precious._validRequestTypes.SingleGet,
-                        "JS",
-                        "storage",
-                        {
-                            type: "set",
-                            key: description,
-                            value: current
-                        },
-                        function () { }
-                    )
-                }
-            });
-        }
-    );
+                Precious.plugins.setStorageEntry(null,description,current);
+            }
+        });
+    });
 }
 
 function calcDist(gps1, gps2) {

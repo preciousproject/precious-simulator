@@ -1,0 +1,31 @@
+{
+  "dirs": [
+    {
+      "dir": "./app/pages",
+      "type": "pages"
+    },
+    {
+      "dir": "./plugins",
+      "type": "plugins"
+    }
+  ],
+  "general": {
+    "devices": [
+      {
+        "name": "iPhone 5",
+        "width": "320",
+        "height": "568"
+      },
+      {
+        "name": "iPhone 6",
+        "width": "375",
+        "height": "667"
+      },
+      {
+        "name": "iPhone 6 Plus",
+        "width": "414",
+        "height": "736"
+      }
+    ]
+  }
+}

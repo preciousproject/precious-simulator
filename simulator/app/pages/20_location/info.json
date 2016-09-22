@@ -1,0 +1,6 @@
+{
+  "name": "Location",
+  "url": "gps.html",
+  "js": ["gps.js"],
+  "css": ["gps.css"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Heartrate",
+  "url": "heartrate.html",
+  "js": ["heartrate.js"],
+  "css": ["heartrate.css"]
+}

@@ -1,0 +1,40 @@
+#Storage {
+  padding-top: 15px;
+}
+#Storage table#storage-table thead tr td,
+#Storage table#storage-table tbody tr td,
+#Storage table#storage-table thead tr th,
+#Storage table#storage-table tbody tr th {
+  position: relative;
+  padding: 1px 8px;
+}
+#Storage table#storage-table thead tr td div.storage-content,
+#Storage table#storage-table tbody tr td div.storage-content,
+#Storage table#storage-table thead tr th div.storage-content,
+#Storage table#storage-table tbody tr th div.storage-content {
+  margin: -1px -8px;
+  padding: 1px 8px;
+}
+#Storage table#storage-table thead tr td div.entry-menu,
+#Storage table#storage-table tbody tr td div.entry-menu,
+#Storage table#storage-table thead tr th div.entry-menu,
+#Storage table#storage-table tbody tr th div.entry-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  height: 18px;
+  right: 8px;
+  display: none;
+}
+#Storage table#storage-table thead tr td.spaceholder,
+#Storage table#storage-table tbody tr td.spaceholder {
+  padding-left: 0;
+  padding-right: 0;
+}
+#Storage table#storage-table thead tr:hover td div.entry-menu,
+#Storage table#storage-table tbody tr:hover td div.entry-menu,
+#Storage table#storage-table thead tr:hover th div.entry-menu,
+#Storage table#storage-table tbody tr:hover th div.entry-menu {
+  display: block;
+}

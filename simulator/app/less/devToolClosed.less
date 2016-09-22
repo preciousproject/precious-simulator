@@ -1,0 +1,24 @@
+@bg-color:#dbdbdb;
+@color: #9c9c9c;
+
+body{
+  -webkit-user-select: none;
+  background: @bg-color;
+  overflow: hidden;
+  div {
+    display: table;
+    table-layout: fixed;
+    height:100%;
+    position: absolute;
+    width: 100%;
+    p {
+      cursor: default;
+      display:table-cell;
+      vertical-align:middle;
+      text-align:center;
+      font-size: 3em;
+      width: 100%;
+      color: @color;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Storage",
+  "url": "storage.html",
+  "js": ["storage.js"],
+  "css": ["storage.css"]
+}

@@ -1,10 +1,5 @@
 function startLocationRequests(callback) {
-	Precious.makeRequest(
-        Precious._validRequestTypes.ContinousGet,
-        "JS",
-        "location",
-        {type: "default"}, //needs to be handled correctly by precious
-        function(error, response) {
+	Precious.plugins.getContinuousGPS(function(error, response) {
         	if(error) callback(error);
         	else {
         		callback(null, {
@@ -12,8 +7,7 @@ function startLocationRequests(callback) {
         			longitude: response.longitude
         		});
         	}
-        }
-    )
+    });
 }
 
 function setGpsAvailable(available) {

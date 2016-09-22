@@ -1,0 +1,6 @@
+{
+  "name": "User",
+  "url": "user.html",
+  "js": ["user.js"],
+  "css": ["user.css"]
+}

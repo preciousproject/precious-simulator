@@ -1,0 +1,6 @@
+{
+  "name": "General",
+  "url": "general.html",
+  "js": ["general.js"],
+  "css": ["general.css"]
+}

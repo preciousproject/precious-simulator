@@ -1,0 +1,21 @@
+body {
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  background: white;
+  overflow: hidden;
+}
+body div {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+body div p {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 2em;
+  width: 100%;
+  color: #888888;
+}

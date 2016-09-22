@@ -1,0 +1,24 @@
+@bg-color: white;
+@color: #888888;
+
+body{
+  -webkit-app-region: drag;
+  -webkit-user-select: none;
+  background: @bg-color;
+  overflow: hidden;
+  div {
+    display: table;
+    table-layout: fixed;
+    height:100%;
+    position: absolute;
+    width: 100%;
+    p {
+      display:table-cell;
+      vertical-align:middle;
+      text-align:center;
+      font-size: 2em;
+      width: 100%;
+      color: @color;
+    }
+  }
+}
